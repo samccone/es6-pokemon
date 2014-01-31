@@ -1,41 +1,24 @@
 <!doctype html>
-<title>react-pokemon</title>
+<title>vanilla pokemon</title>
 
-<script src="http://fb.me/react-0.8.0.min.js"></script>
-<script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
-<script src="pokemon.js"></script>
 
-<main></main>
+<div>
+    <input  id="thing" type="text" value="pikachu" />
+    <br />
+    <img id = "pokemon"/>
+</div>
 
-<script type="text/jsx">
-    /**
-      * @jsx React.DOM
-      */
-
-    var App = React.createClass({
-        getInitialState: function () {
-            return {
-                name: 'pikachu'
-            };
-        },
-
-        updateName: function () {
-            this.setState({
-                name: this.refs.name.getDOMNode().value
-            });
-        },
-
-        render: function () {
-            return <div>
-                <input ref="name" onChange={this.updateName} value={this.state.name} />
-                <br />
-                <Pokemon name={this.state.name} />
-            </div>;
+<script>
+    (function () {
+        function updatePokemon (name) {
+            return 'http://img.pokemondb.net/artwork/' + name + '.jpg';
         }
-    });
-
-    React.renderComponent(
-        <App />,
-        document.querySelector('main')
-    );
+        function check () {
+            img.src = updatePokemon(input.value);
+        }
+        var input = document.getElementById('thing');
+        var img = document.getElementById('pokemon');
+        input.onkeyup = check;
+        check();
+    }());
 </script>
