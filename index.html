@@ -1,24 +1,13 @@
 <!doctype html>
 <title>vanilla pokemon</title>
-
-
+<input  id="thing" type="text" value="pikachu" />
 <div>
-    <input  id="thing" type="text" value="pikachu" />
-    <br />
-    <img id = "pokemon"/>
+<img id = "pokemon"/>
 </div>
-
 <script>
-    (function () {
-        function updatePokemon (name) {
-            return 'http://img.pokemondb.net/artwork/' + name + '.jpg';
-        }
-        function check () {
-            img.src = updatePokemon(input.value);
-        }
-        var input = document.getElementById('thing');
-        var img = document.getElementById('pokemon');
-        input.onkeyup = check;
-        check();
-    }());
+function check () {
+    document.getElementById('pokemon').src = 'http://img.pokemondb.net/artwork/' +document.getElementById('thing').value +'.jpg';
+}
+document.getElementById('thing').onkeyup = check;
+check();
 </script>
