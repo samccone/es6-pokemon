@@ -1,3 +1,3 @@
-#Straight up pokemon, no frameworks
+# Straight up ES6 pokemon, no frameworks
 
-loosely based on https://github.com/passy/react-pokemon
+Based on https://github.com/passy/elm-pokemon

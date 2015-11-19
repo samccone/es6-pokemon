@@ -1,13 +1,23 @@
 <!doctype html>
-<title>vanilla pokemon</title>
-<input id="thing" type="text" value="pikachu" />
+<title>ES6 pokemon</title>
+
+<input id="picker" type="text" value="pikachu" />
 <div>
-<img id="pokemon"/>
+  <img id="pokemon"/>
 </div>
+
 <script>
-  function check () {
-    document.getElementById('pokemon').src = 'http://img.pokemondb.net/artwork/' + document.getElementById('thing').value +'.jpg';
-  }
-  document.getElementById('thing').onkeyup = check;
-  check();
+  (() => {
+    'use strict';
+
+    const picker = document.getElementById('picker');
+
+    function set(val) {
+      val && (document.getElementById('pokemon').src = `http://img.pokemondb.net/artwork/${val}.jpg`)
+    }
+
+    picker.onkeyup = (e) => set(e.target.value.trim());
+
+    set(picker.value);
+  })();
 </script>
